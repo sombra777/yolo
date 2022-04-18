@@ -17,6 +17,7 @@ function MyStack() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen name="Home" component={HomeScreen} />
+      <HomeStack.Screen name="Stack" component={StackScreen} />
     </HomeStack.Navigator>
   );
 }
@@ -31,18 +32,17 @@ function MyTabs() {
     >
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={MyStack}
         options={{
+          tabBarLabel: "Feed",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="home-variant"
-              size={24}
-              color={color}
-            />
+            <MaterialCommunityIcons name="home" color={color} size={30} />
           ),
+          tabBarBadge: 10,
           headerShown: false,
         }}
       />
+
       <Tab.Screen
         name="Setting"
         component={SettingsScreen}
